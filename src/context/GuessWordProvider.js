@@ -16,9 +16,15 @@ const handleDispatch = (state, action) => {
 };
 export function GuessWordProvider({ children }) {
   const [state, dispatch] = useReducer(handleDispatch, {
-    sortBy: null,
-    gender: [],
-    size: [],
+    currentWordNumber: 0,
+    guessedWords: [
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+    ],
   });
 
   return (
