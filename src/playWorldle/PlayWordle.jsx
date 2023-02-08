@@ -7,13 +7,15 @@ function PlayWordle() {
 
   return (
     <div className="Play-Wordle">
-      <GuessWord randomWord={randomWord} guessNumber={0} />
-      <GuessWord randomWord={randomWord} guessNumber={1} />
-      <GuessWord randomWord={randomWord} guessNumber={2} />
-      <GuessWord randomWord={randomWord} guessNumber={3} />
-      <GuessWord randomWord={randomWord} guessNumber={4} />
-      <GuessWord randomWord={randomWord} guessNumber={5} />
-
+      <h2>Wordle</h2>
+      <div className="word-board">
+        <GuessWord randomWord={randomWord} guessNumber={0} />
+        <GuessWord randomWord={randomWord} guessNumber={1} />
+        <GuessWord randomWord={randomWord} guessNumber={2} />
+        <GuessWord randomWord={randomWord} guessNumber={3} />
+        <GuessWord randomWord={randomWord} guessNumber={4} />
+        <GuessWord randomWord={randomWord} guessNumber={5} />
+      </div>
       <Keyboard />
     </div>
   );
