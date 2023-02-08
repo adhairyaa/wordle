@@ -4,7 +4,7 @@ import "./GuessWord.css";
 function GuessWord({ randomWord, guessNumber }) {
   const randomWordArr = randomWord.split("");
   const { state } = useGuessWordProvider();
-  const { guessedWords, currentLetter, currentWord } = state;
+  const { guessedWords } = state;
   const wordsToShow = guessedWords[guessNumber].word;
   return (
     <div className="guess-word">
