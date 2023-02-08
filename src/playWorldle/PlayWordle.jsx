@@ -8,6 +8,7 @@ function PlayWordle() {
   return (
     <div className="Play-Wordle">
       <h2>Wordle</h2>
+
       <div className="word-board">
         <GuessWord randomWord={randomWord} guessNumber={0} />
         <GuessWord randomWord={randomWord} guessNumber={1} />

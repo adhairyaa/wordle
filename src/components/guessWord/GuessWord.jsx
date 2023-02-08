@@ -8,6 +8,8 @@ function GuessWord({ randomWord, guessNumber }) {
   const wordsToShow = guessedWords[guessNumber].word;
   return (
     <div className="guess-word">
+      {wordsToShow.join("") === randomWord && <h1> You Won!🎉</h1>}
+      {console.log(wordsToShow.join(""))}
       {wordsToShow.map((letter, index) => (
         <div
           className="letter-box"
@@ -23,7 +25,6 @@ function GuessWord({ randomWord, guessNumber }) {
           }}
         >
           {letter}
-          {console.log(letter, randomWordArr[index])}
         </div>
       ))}
     </div>
