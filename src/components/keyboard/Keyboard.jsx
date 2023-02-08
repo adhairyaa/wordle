@@ -47,7 +47,11 @@ function Keyboard() {
         <button
           className="key"
           data-key={"Enter"}
-          onClick={() => dispatch({ type: "ENTER_WORD" })}
+          onClick={() =>
+            currentWord < 6 && guessedWords[currentWord].word[4] !== ""
+              ? dispatch({ type: "ENTER_WORD" })
+              : null
+          }
         >
           {"Enter"}
         </button>
@@ -69,7 +73,7 @@ function Keyboard() {
           data-key={"<<"}
           onClick={() => dispatch({ type: "GO_BACK" })}
         >
-          {"<<"}
+          {"↩"}
         </button>
       </div>
     </div>
