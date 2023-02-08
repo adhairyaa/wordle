@@ -4,11 +4,15 @@ const GuessWordContext = createContext();
 
 const handleDispatch = (state, action) => {
   switch (action.type) {
-    case "LOW_TO_HIGH":
-      return (state = {
+    case "ENTER_LETTER":
+      let updatedGuessedWords = [...state.guessedWords];
+      updatedGuessedWords[state.currentWord][state.currentLetter] =
+        action.payload;
+      return {
         ...state,
-        sortBy: "LOW_TO_HIGH",
-      });
+        currentLetter: state.currentLetter + 1,
+        guessedWords: updatedGuessedWords,
+      };
 
     default:
       return state;
@@ -16,7 +20,8 @@ const handleDispatch = (state, action) => {
 };
 export function GuessWordProvider({ children }) {
   const [state, dispatch] = useReducer(handleDispatch, {
-    currentWordNumber: 0,
+    currentWord: 0,
+    currentLetter: 0,
     guessedWords: [
       ["", "", "", "", ""],
       ["", "", "", "", ""],
