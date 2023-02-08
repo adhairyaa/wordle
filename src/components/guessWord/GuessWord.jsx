@@ -12,13 +12,14 @@ function GuessWord({ randomWord, guessNumber }) {
         <div
           className="letter-box"
           style={{
-            backgroundColor: guessedWords[guessNumber].isEntered
-              ? "darkgray"
-              : letter.toUpper === randomWordArr[index]
-              ? "green"
-              : randomWordArr.includes(letter)
-              ? "gold"
-              : "grey",
+            backgroundColor:
+              guessedWords[guessNumber].isEntered === false
+                ? "darkgray"
+                : letter === randomWordArr[index]
+                ? "green"
+                : randomWordArr.includes(letter)
+                ? "gold"
+                : "grey",
           }}
         >
           {letter}

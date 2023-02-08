@@ -8,7 +8,9 @@ function Keyboard() {
     ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
     ["Z", "X", "C", "V", "B", "N", "M"],
   ];
-
+  const { state } = useGuessWordProvider();
+  const { guessedWords, currentWord } = state;
+  console.log(guessedWords[currentWord].word.length);
   return (
     <div className="keyboard">
       <div>
@@ -16,7 +18,11 @@ function Keyboard() {
           <button
             className="key"
             data-key={letter}
-            onClick={() => dispatch({ type: "ENTER_LETTER", payload: letter })}
+            onClick={() =>
+              guessedWords[currentWord].word[4] === ""
+                ? dispatch({ type: "ENTER_LETTER", payload: letter })
+                : null
+            }
           >
             {letter}
           </button>
@@ -27,7 +33,11 @@ function Keyboard() {
           <button
             className="key"
             data-key={letter}
-            onClick={() => dispatch({ type: "ENTER_LETTER", payload: letter })}
+            onClick={() =>
+              guessedWords[currentWord].word[4] === ""
+                ? dispatch({ type: "ENTER_LETTER", payload: letter })
+                : null
+            }
           >
             {letter}
           </button>
@@ -45,7 +55,11 @@ function Keyboard() {
           <button
             className="key"
             data-key={letter}
-            onClick={() => dispatch({ type: "ENTER_LETTER", payload: letter })}
+            onClick={() =>
+              guessedWords[currentWord].word[4] === ""
+                ? dispatch({ type: "ENTER_LETTER", payload: letter })
+                : null
+            }
           >
             {letter}
           </button>
