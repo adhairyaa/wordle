@@ -10,7 +10,7 @@ function Keyboard() {
   ];
   const { state } = useGuessWordProvider();
   const { guessedWords, currentWord } = state;
-  console.log(guessedWords[currentWord].word.length);
+
   return (
     <div className="keyboard">
       <div>

@@ -10,12 +10,15 @@ const handleDispatch = (state, action) => {
         action.payload;
       return {
         ...state,
-        currentLetter: state.currentLetter + 1,
+        currentLetter:
+          state.currentLetter < 4
+            ? state.currentLetter + 1
+            : state.currentLetter,
         guessedWords: updatedGuessedWords,
       };
     case "GO_BACK":
       let skippedGuessedWords = [...state.guessedWords];
-      skippedGuessedWords[state.currentWord].word[state.currentLetter - 1] = "";
+      skippedGuessedWords[state.currentWord].word[state.currentLetter] = "";
       return {
         ...state,
         currentLetter:
@@ -31,7 +34,7 @@ const handleDispatch = (state, action) => {
       return {
         ...state,
         currentWord:
-          state.currentWord < 5 ? state.currentWord + 1 : state.currentWord,
+          state.currentWord <= 5 ? state.currentWord + 1 : state.currentWord,
         currentLetter: 0,
         guessedWords: enteredGuessedWord,
       };
