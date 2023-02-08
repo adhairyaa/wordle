@@ -7,10 +7,16 @@ button {
 }
 .key {
   border: none;
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin: 5px;
   padding: 10px;
   font-weight: bold;
   border-radius: 5px;
   background-color: lightgray;
+}
+h3 {
+  display: inline;
+  background-color: aquamarine;
+  transform: scale(3);
+  transition: 500ms;
 }

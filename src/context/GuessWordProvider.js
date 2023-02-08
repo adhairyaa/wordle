@@ -38,6 +38,8 @@ const handleDispatch = (state, action) => {
         currentLetter: 0,
         guessedWords: enteredGuessedWord,
       };
+    case "RESULTS":
+      return { ...state, results: action.payload };
 
     default:
       return state;
@@ -47,6 +49,7 @@ export function GuessWordProvider({ children }) {
   const [state, dispatch] = useReducer(handleDispatch, {
     currentWord: 0,
     currentLetter: 0,
+    results: null,
     guessedWords: [
       { word: ["", "", "", "", ""], isEntered: false },
       { word: ["", "", "", "", ""], isEntered: false },
