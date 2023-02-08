@@ -10,17 +10,17 @@ function Keyboard({ randomWord }) {
   ];
   const { state } = useGuessWordProvider();
   const { guessedWords, currentWord, results } = state;
-  const handleEnterClick = () => (
-    currentWord < 6 && guessedWords[currentWord].word[4] !== ""
-      ? dispatch({ type: "ENTER_WORD" })
-      : null,
-    currentWord < 5 && guessedWords[currentWord].word.join("") === randomWord
-      ? dispatch({
-          type: "RESULTS",
-          payload: `'YOU WON 🎉' 
+  const handleEnterClick = () => {
+    currentWord < 6 &&
+      guessedWords[currentWord].word[4] !== "" &&
+      dispatch({ type: "ENTER_WORD" });
+    currentWord < 5 &&
+      guessedWords[currentWord].word.join("") === randomWord &&
+      dispatch({
+        type: "RESULTS",
+        payload: `'YOU WON 🎉' 
           Word: ${randomWord}`,
-        })
-      : null,
+      });
     currentWord === 5 &&
       (guessedWords[currentWord].word.join("") === randomWord
         ? dispatch({
@@ -32,8 +32,8 @@ function Keyboard({ randomWord }) {
             type: "RESULTS",
             payload: `'YOU LOST' Word : 
             ${randomWord}`,
-          }))
-  );
+          }));
+  };
   return (
     <div className="keyboard">
       <h3>{results}</h3>
