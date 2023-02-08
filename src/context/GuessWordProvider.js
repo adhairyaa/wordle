@@ -14,12 +14,15 @@ const handleDispatch = (state, action) => {
         guessedWords: updatedGuessedWords,
       };
     case "GO_BACK":
-      let currentLetter = state.currentLetter - 1;
       let skippedGuessedWords = [...state.guessedWords];
-      skippedGuessedWords[state.currentWord].word[state.currentLetter] = "";
+      skippedGuessedWords[state.currentWord].word[state.currentLetter - 1] = "";
       return {
         ...state,
-        currentLetter: currentLetter,
+        currentLetter:
+          state.guessedWords[state.currentWord].word[state.currentLetter] ===
+            "" && state.currentLetter > 0
+            ? state.currentLetter - 1
+            : state.currentLetter,
         guessedWords: skippedGuessedWords,
       };
     case "ENTER_WORD":
@@ -27,7 +30,8 @@ const handleDispatch = (state, action) => {
       enteredGuessedWord[state.currentWord].isEntered = true;
       return {
         ...state,
-        currentWord: state.currentWord + 1,
+        currentWord:
+          state.currentWord < 5 ? state.currentWord + 1 : state.currentWord,
         currentLetter: 0,
         guessedWords: enteredGuessedWord,
       };

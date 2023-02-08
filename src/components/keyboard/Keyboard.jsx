@@ -70,7 +70,7 @@ function Keyboard() {
         ))}
         <button
           className="key"
-          data-key={"<<"}
+          data-key={"↩"}
           onClick={() => dispatch({ type: "GO_BACK" })}
         >
           {"↩"}
