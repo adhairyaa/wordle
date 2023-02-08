@@ -13,6 +13,21 @@ const handleDispatch = (state, action) => {
         currentLetter: state.currentLetter + 1,
         guessedWords: updatedGuessedWords,
       };
+    case "GO_BACK":
+      let currentLetter = state.currentLetter - 1;
+      let skippedGuessedWords = [...state.guessedWords];
+      skippedGuessedWords[state.currentWord][state.currentLetter] = "";
+      return {
+        ...state,
+        currentLetter: currentLetter,
+        guessedWords: skippedGuessedWords,
+      };
+    case "ENTER_WORD":
+      return {
+        ...state,
+        currentWord: state.currentWord + 1,
+        currentLetter: 0,
+      };
 
     default:
       return state;

@@ -34,7 +34,11 @@ function Keyboard() {
         ))}
       </div>
       <div>
-        <button className="key" data-key={"Enter"}>
+        <button
+          className="key"
+          data-key={"Enter"}
+          onClick={() => dispatch({ type: "ENTER_WORD" })}
+        >
           {"Enter"}
         </button>
         {keyboardKeys[2].map((letter) => (
